@@ -1,0 +1,2 @@
+pandoc --standalone -f gfm -o compress.html compress.md
+
