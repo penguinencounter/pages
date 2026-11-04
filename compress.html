@@ -4,14 +4,16 @@
     <meta charset="utf-8">
     <meta content="pandoc" name="generator">
     <meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport">
-    <title>compress</title>
+    <meta content="Making Avatars Smaller" name="og:title">
+    <meta content="Techniques for getting your Figura avatars under 100 KB." name="og:description">
+    <meta content="penguinencounter" name="og:site_name">
+    <title>Making Avatars Smaller</title>
     <link href="document.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <blockquote>
-    <p>written for Figura 0.1.x.<br>
-        inspired by a post by Total in #creative-hellp on the Figura discord.
-        Thanks!</p>
+    <p>written for Figura 0.1.x by penguinencounter</p>
+    <p>inspired by a post by Total in #creative-hellp on the Figura discord. Thanks!</p>
 </blockquote>
 <h1 id="making-avatars-smaller">Making Avatars Smaller</h1>
 <p>There's a <strong>100 KB limit</strong> on your avatar. If you exceed
@@ -97,12 +99,80 @@
 <p>Remember that <strong>there is no magic solution.</strong> If your
     avatar is 1 MiB, there is likely nothing you can do to cut your avatar's
     size by 1/10 without giving up some of your avatar's content.</p>
+
+
 <h2 id="make-it-smaller">MAKE IT SMALLER</h2>
+
+<h3 id="general-1">General</h3>
+<ul>
+    <li>
+        <p>
+            <strong>Can you split this avatar into multiple smaller avatars?</strong>
+        </p>
+        <div class="badge-row">
+            <span class="badge lv1">High impact</span>
+            <span class="badge lv3">Hard</span>
+        </div>
+        <p>
+            If you have, say, 5 different characters in a single avatar, you realistically only need
+            one character at a time. Splitting the avatar into five would let you use the whole 100 KB for each one.
+        </p>
+    </li>
+</ul>
+
+<h3 id="sounds">Sounds</h3>
+<ul>
+    <li>
+        <strong>Try <a href="https://optivorbis.github.io/OptiVorbis/">OptiVorbis</a></strong>.
+        <span class="badge lv3">Impact varies</span>
+        <span class="badge lv1">Easy</span>
+    </li>
+    <li>
+        <p>
+            Consider <strong>using Minecraft's built-in sounds</strong> instead
+            of custom sounds. They don't take up any space!
+        </p>
+        <div class="badge-row">
+            <span class="badge lv1">High impact</span>
+            <span class="badge lv3">Hard</span>
+        </div>
+        <ul>
+            <li>Play with sounds &amp; pitches in your browser: <a
+                    href="https://misode.github.io/sounds/">https://misode.github.io/sounds/</a></li>
+            <li>Beware &mdash; if you're using a sound that has some randomized variations,
+                you <em>can't choose which variation you get</em> using scripts.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>
+            Reduce the quality with audio editing software, like Audacity.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv1">Medium impact</span>
+            <span class="badge lv2">Moderate</span>
+        </div>
+        <ul>
+            <li>
+                I've made a <a href="https://penguinencounter.github.io/fumux-prod/prod/?builtin=figura">
+                tool to do this online</a>, but if you want more control an actual audio editor is recommended
+            </li>
+        </ul>
+    </li>
+</ul>
+
 <h3 id="scripts">Scripts</h3>
 <ul>
-    <li>If scripts are <em>really</em> the problem, you can adjust the
-        <strong>Format Script</strong> setting in Figura's settings to change
-        how aggressively it tries to compact your scripts.
+    <li>
+        <p>
+            If scripts are <em>really</em> the problem, you can adjust the
+            <strong>Format Script</strong> setting in Figura's settings to change
+            how aggressively it tries to compact your scripts.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv2">Medium impact</span>
+            <span class="badge lv1">Easy</span>
+        </div>
         <ul>
             <li><strong>None</strong> does nothing to your scripts. There is very
                 little reason to use this option.
@@ -120,13 +190,27 @@
             </li>
         </ul>
     </li>
-    <li>Removing scripts you don't care about as much is always an
-        option.
+    <li>
+        <p>
+            Reduce the amount of duplicated code you have in your script files. (You can ask for help with this in the
+            Discord!)
+        </p>
+        <div class="badge-row">
+            <span class="badge lv3">Impact varies</span>
+            <span class="badge lv2">Moderate</span>
+        </div>
     </li>
-    <li>Reduce the amount of duplicated code you have in your script files.
-        (You can ask for help with this!)
+    <li>
+        <p>
+            Removing scripts you don't care about or aren't using is always an option.
+        </p>
+        <div class="badge-row">
+            <span class="badge lesser lv1">High impact</span>
+            <span class="badge lesser lv4">Destructive</span>
+        </div>
     </li>
 </ul>
+
 <h3 id="models">Models</h3>
 <ul>
     <li><strong>Avoid meshes</strong>. Meshes use <em>way</em> more data
@@ -143,7 +227,7 @@
     </li>
     <li>If you have multiple variants of your model, try to see if you can
         accomplish this by switching <em>textures</em> or smaller parts of your
-        model, rather than having multiple redundtant copies of parts.
+        model, rather than having multiple redundant copies of parts.
     </li>
 </ul>
 <div class="note">
@@ -166,8 +250,8 @@
             </li>
         </ul>
     </details>
-
 </div>
+
 <h3 id="textures">Textures</h3>
 <ul>
     <li>Use a <strong>texture compressor</strong> to reduce the size of your
@@ -179,7 +263,7 @@
         <ul>
             <li>If the textures are not in the avatar folder, Figura will use the
                 copy of the texture that is embedded in the Blockbench file, which is
-                ususally not compressed as well.
+                usually not compressed as well.
             </li>
             <li>You can do this by right-clicking the texture in Blockbench,
                 choosing <strong>Change File</strong>, and re-selecting the
@@ -246,7 +330,7 @@
                     <li>or just wait for 0.1.7 where this functionality is built in</li>
                     <li>You can also <strong>manually create palette swaps</strong>. If you
                         make sure the palette is laid out the same way on each of them, the
-                        aformentioned final DEFLATE pass will take care of most of the overhead!
+                        aforementioned final DEFLATE pass will take care of most of the overhead!
                         This is quite difficult to pull off without the right software, however
                         (I know <a href="https://www.gimp.org/">GIMP</a> can do it, but the
                         learning curve for that is a cliff)
@@ -255,32 +339,8 @@
             </li>
         </ul>
     </details>
-
 </div>
-<h3 id="sounds">Sounds</h3>
-<ul>
-    <li>Consider <strong>using Minecraft's built-in sounds</strong> instead
-        of custom sounds. They're free!
-        <ul>
-            <li>Play with sounds &amp; pitches in your browser: <a
-                    href="https://misode.github.io/sounds/">https://misode.github.io/sounds/</a></li>
-            <li>But... if you're using a sound that has some randomized variations,
-                you <em>can't choose which variation you get</em>.
-            </li>
-        </ul>
-    </li>
-    <li><strong>Try <a
-            href="https://optivorbis.github.io/OptiVorbis/">OptiVorbis</a></strong>.
-    </li>
-    <li>Reduce the quality with audio editing software, like Audacity
-        <ul>
-            <li>I've made a <a
-                    href="https://penguinencounter.github.io/fumux-prod/prod/?builtin=figura">tool
-                to do this online</a>, but you get less control this way
-            </li>
-        </ul>
-    </li>
-</ul>
+
 <h3 id="general">General</h3>
 <ul>
     <li>TODO</li>

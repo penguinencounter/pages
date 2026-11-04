@@ -12,6 +12,18 @@ html {
 
     --link: #285664;
     --details-hint: #333f36;
+
+    --badge-lv1: oklch(0.4214 0.0714 149);
+    --badge-lv1-bg: oklch(0.9021 0.0582 149);
+
+    --badge-lv2: oklch(0.4214 0.0714 101.48);
+    --badge-lv2-bg: oklch(0.9021 0.0582 101.48);
+
+    --badge-lv3: oklch(0.4214 0.0714 73.71);
+    --badge-lv3-bg: oklch(0.9021 0.0582 73.71);
+
+    --badge-lv4: oklch(0.4214 0.0791 33.12);
+    --badge-lv4-bg: oklch(0.9235 0.0384 33.12);
 }
 
 * {
@@ -30,6 +42,18 @@ html {
 
         --link: #b080ff;
         --details-hint: #c0eaca;
+
+        --badge-lv1: oklch(0.9021 0.0582 149);
+        --badge-lv1-bg: oklch(0.4214 0.0714 149);
+
+        --badge-lv2: oklch(0.9021 0.0582 101.48);
+        --badge-lv2-bg: oklch(0.4214 0.0714 101.48);
+
+        --badge-lv3: oklch(0.9021 0.0582 73.71);
+        --badge-lv3-bg: oklch(0.4214 0.0714 73.71);
+
+        --badge-lv4: oklch(0.9235 0.0384 33.12);
+        --badge-lv4-bg: oklch(0.4214 0.0791 33.12);
     }
 }
 
@@ -127,8 +151,8 @@ summary {
 
 @media (max-width: 600px) {
     body {
-        font-size: 0.9em;
-        padding: 12px;
+        /*font-size: 0.9em;*/
+        padding: 32px;
     }
 
     h1 {
@@ -326,4 +350,52 @@ ul.task-list li input[type="checkbox"] {
     display: block;
     text-align: center;
     margin: 0.5rem auto;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.15em 0.4em;
+    border-radius: 0.4em;
+    --badge-border: #f0f;
+    --badge-bg: #202;
+    border: 1px solid var(--badge-border);
+    background-color: var(--badge-bg);
+    font-size: .9em;
+
+    color: var(--badge-border);
+
+    &.lv1 {
+        --badge-border: var(--badge-lv1);
+        --badge-bg: var(--badge-lv1-bg);
+    }
+
+    &.lv2 {
+        --badge-border: var(--badge-lv2);
+        --badge-bg: var(--badge-lv2-bg);
+    }
+
+    &.lv3 {
+        --badge-border: var(--badge-lv3);
+        --badge-bg: var(--badge-lv3-bg);
+    }
+
+    &.lv4 {
+        --badge-border: var(--badge-lv4);
+        --badge-bg: var(--badge-lv4-bg);
+    }
+
+    &.lesser.lesser {
+        --badge-bg: transparent;
+    }
+}
+
+p + div.badge-row {
+    margin-top: -.6em;
+}
+.badge-row {
+    margin-bottom: .75em;
+}
+
+li {
+    margin: .4em 0;
 }
