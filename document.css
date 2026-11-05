@@ -74,6 +74,7 @@ body {
     padding: calc(1.2em + .8rem) 1rem .25rem 1rem;
     border-left: 4px solid var(--note-box);
     position: relative;
+    margin: 1em 0;
 
     .title {
         position: absolute;

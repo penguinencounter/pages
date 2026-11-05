@@ -119,6 +119,18 @@
             one character at a time. Splitting the avatar into five would let you use the whole 100 KB for each one.
         </p>
     </li>
+    <li>
+        <strong>Remove content you aren't using.</strong>
+        <ul>
+            <li>Figura ignores any file or folder whose name starts with a period <code>.</code></li>
+            <li>
+                However, removing textures by deleting their file or renaming it will not reduce the size.
+                Figura will instead choose to pull the texture from the model file(s) that reference it.<br>
+                To remove a texture, <em>delete it from all model files that
+                reference the texture.</em>
+            </li>
+        </ul>
+    </li>
 </ul>
 
 <h3 id="sounds">Sounds</h3>
@@ -470,13 +482,6 @@
     </details>
 </div>
 
-<h3 id="general">General</h3>
-<ul>
-    <li>TODO</li>
-    <li>could this be multiple avatars?</li>
-    <li>host-only <code>/data</code> streaming? too complicated?</li>
-    <li>TODO</li>
-</ul>
 <div class="note">
     <div class="title">
         <p>Note</p>
