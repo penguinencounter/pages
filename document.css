@@ -13,17 +13,17 @@ html {
     --link: #285664;
     --details-hint: #333f36;
 
-    --badge-lv1: oklch(0.4214 0.0714 149);
+    --badge-lv1: oklch(0.3 0.0714 149);
     --badge-lv1-bg: oklch(0.9021 0.0582 149);
 
-    --badge-lv2: oklch(0.4214 0.0714 101.48);
+    --badge-lv2: oklch(0.3 0.0714 101.48);
     --badge-lv2-bg: oklch(0.9021 0.0582 101.48);
 
-    --badge-lv3: oklch(0.4214 0.0714 73.71);
+    --badge-lv3: oklch(0.3 0.0714 73.71);
     --badge-lv3-bg: oklch(0.9021 0.0582 73.71);
 
-    --badge-lv4: oklch(0.4214 0.0791 33.12);
-    --badge-lv4-bg: oklch(0.9235 0.0384 33.12);
+    --badge-lv4: oklch(0.3 0.0791 10);
+    --badge-lv4-bg: oklch(0.9235 0.0384 10);
 
     line-height: 1.5;
 }
@@ -46,16 +46,16 @@ html {
         --details-hint: #c0eaca;
 
         --badge-lv1: oklch(0.9021 0.0582 149);
-        --badge-lv1-bg: oklch(0.4214 0.0714 149);
+        --badge-lv1-bg: oklch(0.3 0.0714 149);
 
         --badge-lv2: oklch(0.9021 0.0582 101.48);
-        --badge-lv2-bg: oklch(0.4214 0.0714 101.48);
+        --badge-lv2-bg: oklch(0.3 0.0714 101.48);
 
         --badge-lv3: oklch(0.9021 0.0582 73.71);
-        --badge-lv3-bg: oklch(0.4214 0.0714 73.71);
+        --badge-lv3-bg: oklch(0.3 0.0714 73.71);
 
-        --badge-lv4: oklch(0.9235 0.0384 33.12);
-        --badge-lv4-bg: oklch(0.4214 0.0791 33.12);
+        --badge-lv4: oklch(0.9235 0.0384 10);
+        --badge-lv4-bg: oklch(0.3 0.0791 10);
     }
 }
 
