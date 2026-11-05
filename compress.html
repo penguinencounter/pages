@@ -396,13 +396,18 @@
     <li>
         <p>
             <strong>Avoid meshes</strong>. Meshes use <em>way</em> more data
-            (~4x) than cubes to store. Also, if you're importing a hi-poly model
-            from Blender or Roblox or something, please reconsider?
+            (~4x) than cubes to store.
         </p>
         <div class="badge-row">
             <span class="badge lesser lv1">High impact</span>
             <span class="badge lesser lv4">Destructive</span>
         </div>
+        <ul>
+            <li>
+                For hi-poly models, you will probably need to use Blender to severely reduce the number of faces and
+                scale down the texture quality.
+            </li>
+        </ul>
     </li>
     <li>
         <p>
@@ -477,15 +482,17 @@
         <p>Note</p>
     </div>
     <details>
-        <summary><b>Technical details</b>: Reduced-precision numbers</summary>
+        <summary><b>Truncating numbers?</b></summary>
 
         <hr>
         <p>The post this article was based on recommended truncating numbers
             (reducing the number of digits) in models and scripts to save space.
-            <strong>In general, this advice is only useful for scripts.</strong></p>
+            <strong>This isn't quite correct.</strong></p>
         <p>Most numbers in a model file are stored in 32 or 64 bits
             <em>regardless of how many digits they have</em>. The only exception is
-            in fields that also have text in them (ex. instruction keyframes.)</p>
+            in fields that also have text in them (ex. instruction keyframes and scripts.)</p>
+        <p>Because of the <em>deflate</em> compression algorithm used, using the <strong>same</strong> numbers in
+            multiple places may save a few bytes.</p>
     </details>
 </div>
 </body>
