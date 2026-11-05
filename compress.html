@@ -7,6 +7,7 @@
     <meta content="Making Avatars Smaller" name="og:title">
     <meta content="Techniques for getting your Figura avatars under 100 KB." name="og:description">
     <meta content="penguinencounter" name="og:site_name">
+    <meta content="#B080FF" name="theme-color">
     <title>Making Avatars Smaller</title>
     <link href="document.css" rel="stylesheet" type="text/css">
 </head>
@@ -149,7 +150,7 @@
             Reduce the quality with audio editing software, like Audacity.
         </p>
         <div class="badge-row">
-            <span class="badge lv1">Medium impact</span>
+            <span class="badge lv2">Medium impact</span>
             <span class="badge lv2">Moderate</span>
         </div>
         <ul>
@@ -160,6 +161,152 @@
         </ul>
     </li>
 </ul>
+
+<h3 id="textures">Textures</h3>
+<ul>
+    <li>
+        <p>
+            Use a <strong>texture compressor</strong> to reduce the size of your
+            textures, like <a href="https://pnggauntlet.com/">PNGGauntlet (Windows)</a>.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv3">Impact varies</span>
+            <span class="badge lv1">Easy</span>
+        </div>
+    </li>
+    <li>
+        <p>
+            Ensure that your textures are in your avatar folder and properly <strong>linked to your model files</strong>.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv3">Impact varies</span>
+            <span class="badge lv1">Easy</span>
+        </div>
+        <ul>
+            <li>If the textures are not in the avatar folder, Figura will use the
+                copy of the texture that is embedded in the Blockbench file, which is
+                usually not compressed as well.
+            </li>
+            <li>You can do this by right-clicking the texture in Blockbench,
+                choosing <strong>Change File</strong>, and re-selecting the
+                texture.
+            </li>
+            <li>
+                <mark>TODO: image</mark>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>
+            <strong>Reduce the number of colors</strong> in your textures!
+            Textures with fewer colors compress better.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv2">Medium impact</span>
+            <span class="badge lv2">Moderate</span>
+        </div>
+        <ul>
+            <li>Gradients and noise use up <em>loads</em> of colors and thus do not
+                compress well. <strong>Try to avoid them if possible</strong>.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>
+            Remove empty space from your textures. Rectangular textures are fine.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv2">Medium impact</span>
+            <span class="badge lv1">Easy</span>
+        </div>
+    </li>
+    <li>
+        <p>
+            If you have many color variations on the same texture, consider
+            making a single grayscale texture and tinting it with a script instead.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv1">High impact</span>
+            <span class="badge lv3">Hard</span>
+        </div>
+        <ul>
+            <li>Note that these tend to look 'washed out' since scripts can't do
+                hue shifting by default.
+            </li>
+            <li>For a <em>WAY more complicated</em> but better-looking solution,
+                expand the box below.
+            </li>
+        </ul>
+    </li>
+</ul>
+<div class="note">
+    <div class="title">
+        <p>Note</p>
+    </div>
+    <details>
+        <summary><b>More compression strategies & how compression works</b></summary>
+
+        <hr>
+        <ul>
+            <li>
+                <p>
+                    <a href="https://github.com/oxipng/oxipng">oxipng</a> at high effort
+                    can apparently do better than PNGGauntlet? You can run it in your
+                    browser at in <a href="https://squoosh.app">squoosh.app</a>, just make
+                    sure you select OxiPNG and don't accidentally make a JPEG or
+                    something
+                </p>
+                <div class="badge-row">
+                    <span class="badge lv3">Impact varies</span>
+                    <span class="badge lv2">Moderate</span>
+                </div>
+            </li>
+            <li>If you can get your image below <strong>256 colors</strong>,
+                compression apps like oxipng and PNGGauntlet can compress it much
+                better! This is because they can use <em>(8bpp)</em> <a
+                        href="https://en.wikipedia.org/wiki/Indexed_color">indexed color</a>,
+                which is much more compact.
+                <ul>
+                    <li>The next big milestone for indexed color is <strong>16
+                        colors</strong> <em>(4bpp)</em>.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    Images with indexed colors (&lt;256 colors) can be palette-swapped
+                    with the <a
+                        href="https://github.com/penguinencounter/colormagic">colormagic</a>
+                    library (#selfpromo), which lets you work with hue-shifted palettes.
+                    This is really not recommended for newer Figura users. Feel free to ping
+                    penguinencounter for help setting this up.
+                </p>
+                <div class="badge-row">
+                    <span class="badge lv1">High impact</span>
+                    <span class="badge lv4">Very hard</span>
+                </div>
+                <ul>
+                    <li>This will be part of the mod in 0.1.7, but until then we sort of just have to deal with it</li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    You can also <strong>manually create palette swaps</strong>. If you
+                    make sure the palette is laid out the same way on each of them, the
+                    aforementioned final DEFLATE pass will take care of most of the overhead!
+                    This is quite difficult to pull off without the right software, however
+                    (I know <a href="https://www.gimp.org/">GIMP</a> can do it, but the
+                    learning curve for that is a cliff)
+                </p>
+
+                <div class="badge-row">
+                    <span class="badge lv2">Medium impact</span>
+                    <span class="badge lv3">Hard</span>
+                </div>
+            </li>
+        </ul>
+    </details>
+</div>
 
 <h3 id="scripts">Scripts</h3>
 <ul>
@@ -199,6 +346,16 @@
             <span class="badge lv3">Impact varies</span>
             <span class="badge lv2">Moderate</span>
         </div>
+        <details>
+            <summary><strong>How do I do that?</strong></summary>
+            <p>Here's some tips to start with.</p>
+            <ul>
+                <li>Use tables and loops for applying the same action to many things.</li>
+                <li>Remember that most changes to model parts <i>cascade</i> to child parts.</li>
+                <li>Store long model part paths in local variables to re-use them.</li>
+                <li>Consider splitting commonly used code into a function and calling it instead of copy-pasting.</li>
+            </ul>
+        </details>
     </li>
     <li>
         <p>
@@ -247,95 +404,6 @@
             <li>Try to keep things at the default values. Figura can delete values
                 that are set to their defaults, which saves a few bytes of space each
                 time.
-            </li>
-        </ul>
-    </details>
-</div>
-
-<h3 id="textures">Textures</h3>
-<ul>
-    <li>Use a <strong>texture compressor</strong> to reduce the size of your
-        textures, like <a href="https://pnggauntlet.com/">PNGGauntlet
-            (Windows)</a> or <a
-                href="https://github.com/oxipng/oxipng">oxipng</a></li>
-    <li>Ensure that your textures are in your avatar folder and properly
-        <strong>linked to your model files</strong>.
-        <ul>
-            <li>If the textures are not in the avatar folder, Figura will use the
-                copy of the texture that is embedded in the Blockbench file, which is
-                usually not compressed as well.
-            </li>
-            <li>You can do this by right-clicking the texture in Blockbench,
-                choosing <strong>Change File</strong>, and re-selecting the
-                texture.
-            </li>
-        </ul>
-    </li>
-    <li><strong>Reduce the number of colors</strong> in your textures!
-        Textures with less colors compress better.
-        <ul>
-            <li>Gradients and noise use up <em>loads</em> of colors and thus do not
-                compress well. Try to avoid them if possible.
-            </li>
-        </ul>
-    </li>
-    <li>Remove empty space from your textures. Figura doesn't care if your
-        texture is a rectangle.
-    </li>
-    <li>If you have many color variations on the same texture, consider
-        making a single grayscale texture and tinting it with a script instead.
-        <ul>
-            <li>Do note that these tend to look 'washed out' since scripts can't do
-                hue shifting by default.
-            </li>
-            <li>For a <em>WAY more complicated</em> but better-looking solution,
-                expand the box below.
-            </li>
-        </ul>
-    </li>
-</ul>
-<div class="note">
-    <div class="title">
-        <p>Note</p>
-    </div>
-    <details>
-        <summary><b>More compression strategies</b></summary>
-
-        <hr>
-        <ul>
-            <li><a href="https://github.com/oxipng/oxipng">oxipng</a> at high effort
-                can apparently do better than PNGGauntlet? You can run it in your
-                browser at in <a href="https://squoosh.app">squoosh.app</a>, just make
-                sure you select OxiPNG and don't accidentally make a JPEG or
-                something
-            </li>
-            <li>If you can get your image below <strong>256 colors</strong>,
-                compression apps like oxipng and PNGGauntlet can compress it much
-                better! This is because they can use <em>(8bpp)</em> <a
-                        href="https://en.wikipedia.org/wiki/Indexed_color">indexed color</a>,
-                which is much more compact.
-                <ul>
-                    <li>The next big milestone for indexed color is <strong>16
-                        colors</strong> <em>(4bpp)</em>.
-                    </li>
-                </ul>
-            </li>
-            <li>Images with indexed colors (&lt;256 colors) can be palette-swapped
-                with the <a
-                        href="https://github.com/penguinencounter/colormagic">colormagic</a>
-                library (#selfpromo), which lets you work with hue-shifted palettes.
-                This is really not recommended for newer Figura users. Feel free to ping
-                penguinencounter for help setting this up.
-                <ul>
-                    <li>or just wait for 0.1.7 where this functionality is built in</li>
-                    <li>You can also <strong>manually create palette swaps</strong>. If you
-                        make sure the palette is laid out the same way on each of them, the
-                        aforementioned final DEFLATE pass will take care of most of the overhead!
-                        This is quite difficult to pull off without the right software, however
-                        (I know <a href="https://www.gimp.org/">GIMP</a> can do it, but the
-                        learning curve for that is a cliff)
-                    </li>
-                </ul>
             </li>
         </ul>
     </details>
