@@ -477,13 +477,20 @@
             </li>
             <li>
                 <p>
-                    Try to keep things at the default values. Figura can delete values
-                    that are set to their defaults, which saves a few bytes of space each
-                    time.
+                    Try to keep things at the default values (in most places, the 'default' is <code style="white-space: nowrap;">(0, 0, 0)</code>).
+                    Figura can delete values that are set to their defaults, which saves a few bytes of space each
+                    time. (This is pretty much only useful for pivot points.)
                 </p>
                 <div class="badge-row">
                     <span class="badge lesser lv3">Low impact</span>
                 </div>
+                <details>
+                    <summary><em>'most places'??</em></summary>
+
+                    <hr>
+                    The exception is Bezier animation curves, where the default is for the control handles
+                    to be at exactly <code>(-0.1, 0.0)</code> and <code>(+0.1, 0.0)</code>.
+                </details>
             </li>
         </ul>
     </details>

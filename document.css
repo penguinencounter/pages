@@ -136,17 +136,17 @@ summary {
         content: "⯈" / "";
         text-align: center;
     }
-    details:open &::before {
+    details:open > &::before {
         content: "⯆" / "";
     }
 
     @media (prefers-reduced-motion: no-preference) {
 
-        details:open &::before {
+        details:open > &::before {
             animation: bump 0.2s ease-out;
         }
 
-        details:not(:open) &::before {
+        details:not(:open) > &::before {
             animation: unbump 0.2s ease-out;
         }
     }
