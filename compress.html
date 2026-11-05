@@ -25,16 +25,16 @@
     <div class="title">
         <p>Note</p>
     </div>
-    <details>
-        <summary>Example <b>technical details</b> box (click to expand)</summary>
+    <details open>
+        <summary>Example <b>collapsable</b> box (click to expand/collapse)</summary>
 
         <hr>
         <p>Okay, so it's actually 100 KiB (kibibytes); that's 102,400 bytes.</p>
-        <p>Boxes like this contain <strong>technical details</strong> on how
-            specific parts of Figura work. If you're curious about what's happening
-            behind the scenes or just want more details on how things work, you can
-            <strong>click the <em>Technical details</em> text to expand the
-                box</strong>. (All future boxes will be collapsed by default.)</p>
+        <p>
+            Boxes like this contain <strong>extra information</strong> for more advanced users.
+            If you want all the details, you can <em>click the <strong>bold</strong> text or
+            the adjacent arrow</em> to expand the box. (All future boxes will be collapsed by default.
+        </p>
         <p><strong>These boxes are not required</strong> and most people don't
             need to read them. <strong>Feel free to skip them!</strong></p>
     </details>
@@ -337,7 +337,7 @@
             </li>
         </ul>
     </li>
-    <li>
+    <!--<li>
         <p>
             Reduce the amount of duplicated code you have in your script files. (You can ask for help with this in the
             Discord!)
@@ -356,7 +356,7 @@
                 <li>Consider splitting commonly used code into a function and calling it instead of copy-pasting.</li>
             </ul>
         </details>
-    </li>
+    </li>-->
     <li>
         <p>
             Removing scripts you don't care about or aren't using is always an option.
@@ -367,24 +367,68 @@
         </div>
     </li>
 </ul>
+<div class="note">
+    <div class="title">
+        <p>Note</p>
+    </div>
+    <details>
+        <summary><b>Technical details</b></summary>
+
+        <hr>
+        <ul>
+            <li>
+                <p>
+                    If you have a lot of scripts that only run on the host for some reason, you can
+                    read them from the <code>data</code> folder instead of including them as part of the avatar.
+                    The same goes for host-only textures and sounds.
+                </p>
+                <div class="badge-row">
+                    <span class="badge lv2">Medium impact</span>
+                    <span class="badge lv3">Hard</span>
+                </div>
+            </li>
+        </ul>
+    </details>
+</div>
 
 <h3 id="models">Models</h3>
 <ul>
-    <li><strong>Avoid meshes</strong>. Meshes use <em>way</em> more data
-        (~4x) than cubes to store. Also, if you're importing a hi-poly model
-        from Blender or Roblox or something, please reconsider?
+    <li>
+        <p>
+            <strong>Avoid meshes</strong>. Meshes use <em>way</em> more data
+            (~4x) than cubes to store. Also, if you're importing a hi-poly model
+            from Blender or Roblox or something, please reconsider?
+        </p>
+        <div class="badge-row">
+            <span class="badge lesser lv1">High impact</span>
+            <span class="badge lesser lv4">Destructive</span>
+        </div>
     </li>
-    <li>If you want to keep using meshes, your priorities should be
-        <strong>reducing the number of vertices</strong> and <strong>removing
+    <li>
+        <p>
+            If you want to keep using meshes, your priorities should be
+            <strong>reducing the number of vertices</strong> and <strong>removing
             unnecessary faces</strong>. If you can't see a face in normal gameplay,
-        it doesn't need to exist! Get rid of it!
+            it doesn't need to exist! Get rid of it!
+        </p>
+        <div class="badge-row">
+            <span class="badge lv2">Medium impact</span>
+            <span class="badge lv2">Moderate</span>
+        </div>
         <ul>
             <li>Note that this advice does not apply to cubes.</li>
         </ul>
     </li>
-    <li>If you have multiple variants of your model, try to see if you can
-        accomplish this by switching <em>textures</em> or smaller parts of your
-        model, rather than having multiple redundant copies of parts.
+    <li>
+        <p>
+            If you have multiple variants of your model, try to see if you can
+            accomplish this by switching <em>textures</em> or smaller parts of your
+            model, rather than having multiple redundant copies of parts.
+        </p>
+        <div class="badge-row">
+            <span class="badge lv1">High impact</span>
+            <span class="badge lv3">Hard</span>
+        </div>
     </li>
 </ul>
 <div class="note">
@@ -392,18 +436,30 @@
         <p>Note</p>
     </div>
     <details>
-        <summary><b>Technical details</b> (extras)</summary>
+        <summary><b>Minor compression strategies</b></summary>
 
         <hr>
         <p>If you're up for it, here's some extra stuff you can do:</p>
         <ul>
-            <li>For meshes, <strong>use quads over tris</strong> when possible. Tris
-                are converted to quads by Figura, so dividing a quad into two tris just
-                uses more space for the same result.
+            <li>
+                <p>
+                    For meshes, <strong>use quads over tris</strong> when possible. Tris
+                    are converted to quads by Figura, so dividing a quad into two tris just
+                    uses more space for the same result.
+                </p>
+                <div class="badge-row">
+                    <span class="badge lesser lv3">Low impact</span>
+                </div>
             </li>
-            <li>Try to keep things at the default values. Figura can delete values
-                that are set to their defaults, which saves a few bytes of space each
-                time.
+            <li>
+                <p>
+                    Try to keep things at the default values. Figura can delete values
+                    that are set to their defaults, which saves a few bytes of space each
+                    time.
+                </p>
+                <div class="badge-row">
+                    <span class="badge lesser lv3">Low impact</span>
+                </div>
             </li>
         </ul>
     </details>
