@@ -14,6 +14,18 @@
     <meta content="#B080FF" name="theme-color">
     <title>Making Avatars Smaller</title>
     <link href="document.css" rel="stylesheet" type="text/css">
+    <script>
+        window.addEventListener("DOMContentLoaded", async () => {
+            document.querySelectorAll("[id]").forEach(it => {
+                const theLink = document.createElement("a")
+                theLink.href = "#" + it.id
+                theLink.innerText = "#"
+                theLink.ariaLabel = "anchor link"
+                theLink.classList.add("skiplink")
+                it.prepend(theLink);
+            })
+        })
+    </script>
 </head>
 <body>
 <blockquote>
@@ -52,30 +64,25 @@
 
 <img alt="The size readout is highlighted in the information box in the top right of the Figura menu."
      class="img-block"
-     src="./100kib_where_is_it.png">
+     src="./100kib_where_is_it.png"
+     style="aspect-ratio: 1030/904; box-sizing: content-box;"
+>
 
 <p>Opening your avatar folder and looking at the file sizes is
     <em>not</em> a good way to judge what is taking up space in your
     avatar.</p>
-<p>Instead, run <code>/figura debug</code> in-game to get a report of
+<p id="figura-debug">
+    Instead, <strong>run <code>/figura debug</code> in-game</strong> to get a report of
     what's going on with your avatar, including, among other things, a
-    <strong>breakdown of how its space is used</strong>.</p>
+    <strong>breakdown of how its space is used</strong>.
+</p>
 <p>You can then read the outputted file yourself (hint: scroll to the
     bottom), or upload it to Discord for someone else to analyze.</p>
-<h3
-        id="figura-already-does-an-okay-job-at-reducing-your-avatars-size">Figura
-    already does an okay job at reducing your avatar's size</h3>
+<h3 id="figura-already-does-an-okay-job-at-reducing-your-avatars-size">
+    Figura already does an okay job at reducing your avatar's size
+</h3>
 <p>That's right! Figura does its best to get rid of data that isn't
-    necessary in <strong>scripts and models</strong>. That means a few
-    things:</p>
-<ul>
-    <li>Feel free to write as many comments in your scripts as you want!
-        They won't count towards your file size.
-    </li>
-    <li>File sizes in Explorer for models and scripts are generally <em>way
-        bigger</em> than their actual size cost in-game.
-    </li>
-</ul>
+    necessary in <strong>scripts and models</strong>.</p>
 <p>However, the rest of the avatar's content is pretty much used as-is;
     that means that <strong>textures</strong> and <strong>sounds</strong>
     generally take up most of the space in an avatar.</p>
@@ -101,8 +108,7 @@
     </details>
 
 </div>
-<p><strong>The main way to reduce the size of your avatar is to reduce
-    the compacted size of its components.</strong></p>
+
 <p>Remember that <strong>there is no magic solution.</strong> If your
     avatar is 1 MiB, there is likely nothing you can do to cut your avatar's
     size by 1/10 without giving up some of your avatar's content.</p>
@@ -110,9 +116,9 @@
 
 <h2 id="make-it-smaller">MAKE IT SMALLER</h2>
 
-<h3 id="general-1">General</h3>
+<h3 id="general">General</h3>
 <ul>
-    <li>
+    <li id="split">
         <p>
             <strong>Can you split this avatar into multiple smaller avatars?</strong>
         </p>
@@ -125,7 +131,7 @@
             one character at a time. Splitting the avatar into five would let you use the whole 100 KB for each one.
         </p>
     </li>
-    <li>
+    <li id="delete">
         <strong>Remove content you aren't using.</strong>
         <ul>
             <li>Figura ignores any file or folder whose name starts with a period <code>.</code></li>
@@ -141,12 +147,12 @@
 
 <h3 id="sounds">Sounds</h3>
 <ul>
-    <li>
+    <li id="optivorbis">
         <strong>Try <a href="https://optivorbis.github.io/OptiVorbis/">OptiVorbis</a></strong>.
         <span class="badge lv3">Impact varies</span>
         <span class="badge lv1">Easy</span>
     </li>
-    <li>
+    <li id="vanilla-sounds">
         <p>
             Consider <strong>using Minecraft's built-in sounds</strong> instead
             of custom sounds. They don't take up any space!
@@ -163,7 +169,7 @@
             </li>
         </ul>
     </li>
-    <li>
+    <li id="audio-quality">
         <p>
             Reduce the quality with audio editing software, like Audacity.
         </p>
@@ -182,7 +188,7 @@
 
 <h3 id="textures">Textures</h3>
 <ul>
-    <li>
+    <li id="texture-compress">
         <p>
             Use a <strong>texture compressor</strong> to reduce the size of your
             textures, like <a href="https://pnggauntlet.com/">PNGGauntlet (Windows)</a>.
@@ -192,7 +198,7 @@
             <span class="badge lv1">Easy</span>
         </div>
     </li>
-    <li>
+    <li id="texture-link">
         <p>
             Ensure that your textures are in your avatar folder and properly <strong>linked to your model files</strong>.
         </p>
@@ -211,11 +217,12 @@
 
                 <img alt="The 'Change File' option in the context menu is highlighted."
                      class="img-block"
-                     src="./100kib_change_file.png">
+                     src="./100kib_change_file.png"
+                     style="aspect-ratio: 596/300; box-sizing: content-box;">
             </li>
         </ul>
     </li>
-    <li>
+    <li id="limit-colors">
         <p>
             <strong>Reduce the number of colors</strong> in your textures!
             Textures with fewer colors compress better.
@@ -230,7 +237,7 @@
             </li>
         </ul>
     </li>
-    <li>
+    <li id="remove-empty-space">
         <p>
             Remove empty space from your textures. Rectangular textures are fine.
         </p>
@@ -239,7 +246,7 @@
             <span class="badge lv1">Easy</span>
         </div>
     </li>
-    <li>
+    <li id="tint">
         <p>
             If you have many color variations on the same texture, consider
             making a single grayscale texture and tinting it with a script instead.
@@ -267,7 +274,7 @@
 
         <hr>
         <ul>
-            <li>
+            <li id="oxipng">
                 <p>
                     <a href="https://github.com/oxipng/oxipng">oxipng</a> at high effort
                     can apparently do better than PNGGauntlet? You can run it in your
@@ -280,7 +287,7 @@
                     <span class="badge lv2">Moderate</span>
                 </div>
             </li>
-            <li>If you can get your image below <strong>256 colors</strong>,
+            <li id="about-indexed-color">If you can get your image below <strong>256 colors</strong>,
                 compression apps like oxipng and PNGGauntlet can compress it much
                 better! This is because they can use <em>(8bpp)</em> <a
                         href="https://en.wikipedia.org/wiki/Indexed_color">indexed color</a>,
@@ -291,7 +298,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li id="colormagic">
                 <p>
                     Images with indexed colors (&lt;256 colors) can be palette-swapped
                     with the <a
@@ -308,7 +315,7 @@
                     <li>This will be part of the mod in 0.1.7, but until then we sort of just have to deal with it</li>
                 </ul>
             </li>
-            <li>
+            <li id="manual-palette">
                 <p>
                     You can also <strong>manually create palette swaps</strong>. If you
                     make sure the palette is laid out the same way on each of them, the
@@ -329,7 +336,7 @@
 
 <h3 id="scripts">Scripts</h3>
 <ul>
-    <li>
+    <li id="format-script">
         <p>
             If scripts are <em>really</em> the problem, you can adjust the
             <strong>Format Script</strong> setting in Figura's settings to change
@@ -376,7 +383,7 @@
             </ul>
         </details>
     </li>-->
-    <li>
+    <li id="delete-script">
         <p>
             Removing scripts you don't care about or aren't using is always an option.
         </p>
@@ -395,7 +402,7 @@
 
         <hr>
         <ul>
-            <li>
+            <li id="host-only-script">
                 <p>
                     If you have a lot of scripts that only run on the host for some reason, you can
                     read them from the <code>data</code> folder instead of including them as part of the avatar.
@@ -412,7 +419,7 @@
 
 <h3 id="models">Models</h3>
 <ul>
-    <li>
+    <li id="no-mesh">
         <p>
             <strong>Avoid meshes</strong>. Meshes use <em>way</em> more data
             (~4x) than cubes to store.
@@ -428,7 +435,7 @@
             </li>
         </ul>
     </li>
-    <li>
+    <li id="unused-faces">
         <p>
             If you want to keep using meshes, your priorities should be
             <strong>reducing the number of vertices</strong> and <strong>removing
@@ -443,7 +450,7 @@
             <li>Note that this advice does not apply to cubes.</li>
         </ul>
     </li>
-    <li>
+    <li id="merge-variants">
         <p>
             If you have multiple variants of your model, try to see if you can
             accomplish this by switching <em>textures</em> or smaller parts of your
@@ -465,7 +472,7 @@
         <hr>
         <p>If you're up for it, here's some extra stuff you can do:</p>
         <ul>
-            <li>
+            <li id="quads">
                 <p>
                     For meshes, <strong>use quads over tris</strong> when possible. Tris
                     are converted to quads by Figura, so dividing a quad into two tris just
@@ -475,9 +482,10 @@
                     <span class="badge lesser lv3">Low impact</span>
                 </div>
             </li>
-            <li>
+            <li id="zero-elide">
                 <p>
-                    Try to keep things at the default values (in most places, the 'default' is <code style="white-space: nowrap;">(0, 0, 0)</code>).
+                    Try to keep things at the default values (in most places, the 'default' is <code
+                        style="white-space: nowrap;">(0, 0, 0)</code>).
                     Figura can delete values that are set to their defaults, which saves a few bytes of space each
                     time. (This is pretty much only useful for pivot points.)
                 </p>
@@ -500,7 +508,7 @@
     <div class="title">
         <p>Note</p>
     </div>
-    <details>
+    <details id="truncate">
         <summary><b>Truncating numbers?</b></summary>
 
         <hr>
